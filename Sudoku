@@ -1,0 +1,43 @@
+#include <iostream>
+#include <cstdlib>
+#include<time.h>
+using namespace std;
+
+void Sudoku(){
+  int lista[9][9];
+  int numeros[9] = {1,2,3,4,5,6,7,8,9};
+  int contador = 0;
+  srand(time(NULL));
+  for (int i = 0; i<9; i++){
+    for (int k = 0; k < 9; k++) {
+           cout << " + ---";
+       }
+       cout << " +";
+       cout << '\n';
+    for (int j = 0;j<9; j++){
+      int n = 1 + rand() % (10-1);
+      lista[i][j] = n;
+      cout <<" |  "<< n << " ";
+      if (lista[i][j] != numeros[9]){
+        contador = contador + 1;
+      }
+    }
+     cout << " |"; 
+     cout <<'\n';
+  }
+  for (int i = 0; i < 9; i++) {
+       cout << " + ---";}
+   cout << " +";
+   cout << '\n';
+  //cout << " "<<contador;
+  if (contador > 0){
+    cout << "No es un Sudoku";
+  }
+  else{
+    cout << "Es un Sudoku";
+  }
+}
+int main(){
+  Sudoku();
+  return 0;
+}
